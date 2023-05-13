@@ -41,5 +41,7 @@ class Stack:
         pass
 
     def top(self):
-
+        """
+        Метод возвращает экземпляр класса
+        """
         return self.head
