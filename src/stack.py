@@ -40,6 +40,7 @@ class Stack:
         """
         pass
 
+    @property
     def top(self):
         """
         Метод возвращает экземпляр класса
