@@ -38,7 +38,9 @@ class Stack:
 
         :return: данные удаленного элемента
         """
-        pass
+        result = self.head.data
+        self.head = self.top.next_node
+        return result
 
     @property
     def top(self):

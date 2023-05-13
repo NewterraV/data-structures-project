@@ -25,3 +25,10 @@ class TestStack(unittest.TestCase):
         self.assertEqual(item.top.data, 225)
         self.assertEqual(item.top.next_node.data, 25)
         self.assertEqual(item.top.next_node.next_node.data, 5)
+
+    def test_stuck_pop(self):
+        item = Stack()
+        item.push(5)
+        item.push(55)
+        self.assertEqual(item.pop(), 55)
+        self.assertEqual(item.top.data, 5)
