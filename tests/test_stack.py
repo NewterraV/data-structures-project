@@ -29,3 +29,10 @@ class TestStack(unittest.TestCase):
         item.push(55)
         self.assertEqual(item.pop(), 55)
         self.assertEqual(item.top.data, 5)
+
+    def test_str(self):
+        item = Stack()
+        self.assertEqual(str(item), '')
+        item.push(5)
+        item.push(55)
+        self.assertEqual(str(item), '55\n5\n')
