@@ -33,7 +33,6 @@ class Queue:
             self.head.next_node = self.tail
             self.tail = node
 
-
     def dequeue(self):
         """
         Метод для удаления элемента из очереди. Возвращает данные удаленного элемента
