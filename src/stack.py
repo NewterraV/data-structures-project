@@ -19,7 +19,12 @@ class Stack:
         self.top = None
 
     def __str__(self):
-        return ''
+        text = ''
+        node = self.top
+        while node:
+            text += f'{node.data}\n'
+            node = node.next_node
+        return text
 
     def push(self, data):
         """
