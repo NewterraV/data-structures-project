@@ -1,7 +1,7 @@
 class Node:
     """Класс для узла стека"""
 
-    def __init__(self, data, next_node=None):
+    def __init__(self, data=None, next_node=None):
         """
         Конструктор класса Node
 
@@ -35,9 +35,7 @@ class Stack:
         if self.top is None:
             node = Node(data)
         else:
-            node = Node(data, self.top.next_node)
-        if self.top:
-            node.next_node = self.top
+            node = Node(data, self.top)
         self.top = node
 
     def pop(self):
