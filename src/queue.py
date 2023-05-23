@@ -10,6 +10,20 @@ class Node:
         self.data = data
         self.next_node = next_node
 
+    def get_data(self):
+        return self.data
+
+    def get_next(self):
+        return self.next_node
+
+        # Set методы
+
+    def set_data(self, data):
+        self.data = data
+
+    def set_next(self, nxt):
+        self.next_node = nxt
+
 
 class Queue:
     """Класс для очереди"""
@@ -25,13 +39,15 @@ class Queue:
 
         :param data: данные, которые будут добавлены в очередь
         """
-        node = Node(data)
-        if self.head is None:
-            self.head = node
-            self.tail = node
-        else:
-            self.head.next_node = self.tail
-            self.tail = node
+        new_node = Node(data)
+        cur_node = self.head
+        if cur_node is None:
+            self.head = self.tail = new_node
+            return
+        while cur_node.next_node is not None:
+            cur_node = cur_node.next_node
+        cur_node.next_node = new_node
+        self.tail = new_node
 
     def dequeue(self):
         """
@@ -39,15 +55,23 @@ class Queue:
 
         :return: данные удаленного элемента
         """
-        pass
+        if self.head is None:
+            return None
+        result = self.head.data
+        self.head = self.head.next_node
+        return result
 
     def __str__(self):
         """Магический метод для строкового представления объекта"""
         node = self.head
         text = ''
-        while node:
+        while True:
+            if self.tail is None:
+                break
+            if node == self.tail:
+                text += self.tail.data
+                break
             text += f'{node.data}\n'
             node = node.next_node
-        if self.tail:
-            text += f'{self.tail.data}'
+
         return text
