@@ -1,9 +1,11 @@
 from src.linked_list import LinkedList
 import unittest
 
+
 class TestStack(unittest.TestCase):
 
     def test_linked_list(self):
+        """Тест кейс класса LinkedList"""
         ll = LinkedList()
         ll.insert_beginning({'id': 1})
         ll.insert_at_end({'id': 2})
